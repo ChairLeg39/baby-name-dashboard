@@ -86,30 +86,33 @@ d3.select("#random-name").text("No names found for selected criteria.");
 
 // Function to run on page load
 function init() {
-d3.csv(csvUrl).then((data) => {
-console.log(`Data: ${data}`);
+    d3.csv(csvUrl).then((data) => {
+        console.log(`Data: ${data}`);
 
-// Get unique names from the dataset
-let names = [...new Set(data.map(entry => entry['First Name']))];
+        // Get unique names from the dataset
+        let names = [...new Set(data.map(entry => entry['First Name']))];
 
-// Use D3 to select the dropdown with id of `#selDataset`
-let dropdownMenu = d3.select("#selDataset");
+        // Sort the names alphabetically
+        names.sort();
 
-// Populate the select options with unique names
-names.forEach((name) => {
-dropdownMenu.append("option").text(name).property("value", name);
-});
+        // Use D3 to select the dropdown with id of `#selDataset`
+        let dropdownMenu = d3.select("#selDataset");
 
-// Get the first sample from the list
-let name = names[0];
+        // Populate the select options with sorted unique names
+        names.forEach((name) => {
+            dropdownMenu.append("option").text(name).property("value", name);
+        });
 
-// Build charts and metadata panel with the first sample
-buildMetadata(name);
-buildChart(name);
+        // Get the first sample from the list
+        let name = names[0];
 
-// Populate gender and ethnicity dropdowns
-populateDropdowns(data);
-});
+        // Build charts and metadata panel with the first sample
+        buildMetadata(name);
+        buildChart(name);
+
+        // Populate gender and ethnicity dropdowns
+        populateDropdowns(data);
+    });
 }
 
 // Function to populate gender and ethnicity dropdowns for random name generator
