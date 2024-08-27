@@ -93,10 +93,13 @@ function init() {
         let names = [...new Set(data.map(entry => entry['First Name']))];
 
         // Sort the names alphabetically
-        names.sort();
+        names.sort((a, b) => a.localeCompare(b));
 
         // Use D3 to select the dropdown with id of `#selDataset`
         let dropdownMenu = d3.select("#selDataset");
+
+        // Clear existing options
+        dropdownMenu.html("");
 
         // Populate the select options with sorted unique names
         names.forEach((name) => {
