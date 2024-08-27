@@ -9,3 +9,7 @@ This repository hosts an independent HTML and JavaScript project that complement
 ## GitHub Pages
 
 The contents of this repository are published on GitHub Pages, allowing users to view the additional visualizations directly in their browser. The link from the main project redirects to this hosted page, ensuring seamless integration between the two parts of the project.
+
+## Learn More 📺
+
+To learn more about how to enable GitHub Pages, watch [this tutorial on YouTube](https://www.youtube.com/watch?v=DqjPr7auwdY).
