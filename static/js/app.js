@@ -1,5 +1,5 @@
 // Build Metadata Panel
-const csvUrl = "baby_names.csv";
+const csvUrl = "baby_names_cleaned.csv";
 function buildMetadata(selectedValue) {
 d3.csv(csvUrl).then((data) => {
 console.log(`Data: ${data}`);
